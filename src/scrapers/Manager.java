@@ -42,6 +42,7 @@ public class Manager {
     public void saveAllProxies(File file) {
         try (FileWriter fw = new FileWriter(file)) {
             getAllScraped().forEach( proxy -> {
+                if(proxy == null || proxy == " ") return;
                 String[] boom = proxy.split(":");
                 if(boom.length == 2 && boom[1].length() < 6) {
                     try {
